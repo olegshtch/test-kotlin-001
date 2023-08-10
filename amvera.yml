@@ -1,0 +1,12 @@
+meta:
+  environment: jvm
+  toolchain:
+    name: gradle
+    version: 17
+build:
+  artifacts:
+    backend/build/libs/*.jar: /
+run:
+  jarName: backend.jar
+  persistenceMount: /data
+  containerPort: 8089
