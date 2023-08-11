@@ -5,7 +5,7 @@ description = "backend"
 plugins {
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
-    kotlin("jvm") version "1.9.0"
+    id("org.jetbrains.kotlin.jvm")
     kotlin("plugin.spring") version "1.9.0"
 }
 
@@ -24,10 +24,11 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-  implementation("org.springframework.boot:spring-boot-starter-webflux")
-  implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-  implementation("org.jetbrains.kotlin:kotlin-reflect")
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation(project(":common"))
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<Test> {
