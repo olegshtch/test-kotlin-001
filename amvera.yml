@@ -9,4 +9,4 @@ build:
 run:
   jarName: backend.jar
   persistenceMount: /data
-  containerPort: 8089
+  containerPort: 8080
