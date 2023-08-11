@@ -16,6 +16,7 @@ java {
 repositories {
     mavenCentral() 
 }
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
