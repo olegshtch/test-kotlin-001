@@ -35,3 +35,11 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+sourceSets {
+    main {
+        project(":frontend").afterEvaluate {
+            output.dir(project(":frontend").tasks.getByName("jsBrowserDistribution"))
+        }
+    }
+}
