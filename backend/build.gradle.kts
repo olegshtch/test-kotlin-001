@@ -38,8 +38,18 @@ tasks.withType<Test> {
 
 sourceSets {
     main {
-        project(":frontend").afterEvaluate {
-            output.dir(project(":frontend").tasks.getByName("jsBrowserDistribution"))
+        resources {
+            project(":frontend").afterEvaluate {
+                srcDir(this.tasks.getByName("jsBrowserDistribution"))
+            }
+        }
+    }
+}
+
+tasks {
+    processResources {
+        eachFile {
+            relativePath = relativePath.prepend("static")
         }
     }
 }
