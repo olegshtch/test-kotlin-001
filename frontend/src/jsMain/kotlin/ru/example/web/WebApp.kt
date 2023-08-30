@@ -4,6 +4,7 @@ import dev.fritz2.core.*
 import dev.fritz2.remote.http
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.json.*
+import ru.example.proto.Hello
 
 fun main() {
     val store: Store<String> = storeOf("Hello")
@@ -18,7 +19,8 @@ fun main() {
         Window.loads.map { _ ->
             val resp = httpApi.get("/hello")
             if (resp.ok) {
-                Json.parseToJsonElement(resp.body()).toString()
+                val hello = Json.decodeFromString(Hello.serializer(), resp.body())
+                "Hello, ${hello.name}"
             } else {
                 throw IllegalArgumentException()
             }
