@@ -17,6 +17,7 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 implementation("dev.fritz2:core:1.0-RC10")
+                implementation(project(":common"))
             }
         }
     }
