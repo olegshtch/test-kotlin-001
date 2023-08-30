@@ -1,8 +1,7 @@
 package ru.example.web
 
-import dev.fritz2.core.Store
-import dev.fritz2.core.render
-import dev.fritz2.core.storeOf
+import dev.fritz2.core.*
+import kotlinx.coroutines.flow.map
 
 fun main() {
     val store: Store<String> = storeOf("Hello")
@@ -12,5 +11,6 @@ fun main() {
         p {
             store.data.render { value -> +value }
         }
+        Window.loads.map { _ -> "Hello2" } handledBy store.update
     }
 }
