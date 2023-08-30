@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
-
 description = "frontend"
 
 plugins {
@@ -18,7 +16,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation("dev.fritz2:core:1.0-RC7")
+                implementation("dev.fritz2:core:1.0-RC10")
             }
         }
     }
