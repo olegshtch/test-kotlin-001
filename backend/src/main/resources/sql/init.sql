@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS testTable(
+    testTable_id IDENTITY NOT NULL PRIMARY KEY,
+    someData VARCHAR
+);

@@ -53,7 +53,9 @@ sourceSets {
 tasks {
     processResources {
         eachFile {
-            relativePath = relativePath.prepend("static")
+            if (!name.endsWith(".sql")) {
+                relativePath = relativePath.prepend("static")
+            }
         }
     }
 }
